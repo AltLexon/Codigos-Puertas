@@ -1,0 +1,39 @@
+Puerta 1: local puerta = script.Parent.Parent
+local click = script.Parent.MouseClick
+
+click:Connect(function()
+	if puerta.CanCollide == true then
+		puerta.CanCollide = false
+		puerta.Transparency = 0.5
+	else
+		puerta.CanCollide = true
+		puerta.Transparency = 0
+	end
+end)
+
+Puerta 2: local puerta = script.Parent
+
+puerta.Touched:Connect(function()
+		puerta.CanCollide = false
+		puerta.Transparency = 0.5
+end)
+
+puerta.TouchEnded:Connect(function()
+	puerta.CanCollide = true
+	puerta.Transparency = 0
+end)
+
+Puerta 3: local prompt = script.Parent
+local puerta = script.Parent.Parent
+
+prompt.Triggered:Connect(function()
+	if prompt.ActionText == "Abrir" then
+		puerta.Transparency = 0.5
+		puerta.CanCollide = false
+		prompt.ActionText = "Cerrar"
+	else
+		puerta.Transparency = 0
+		puerta.CanCollide = true
+		prompt.ActionText = "Abrir"
+	end
+end)
