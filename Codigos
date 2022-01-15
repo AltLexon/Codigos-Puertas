@@ -1,39 +1,60 @@
-Puerta 1: local puerta = script.Parent.Parent
+Puerta 1:
 local click = script.Parent.MouseClick
 
+local part = script.Parent.Parent
+
 click:Connect(function()
-	if puerta.CanCollide == true then
-		puerta.CanCollide = false
-		puerta.Transparency = 0.5
+	if part.CanCollide == true then
+		part.CanCollide = false
+		part.Transparency = .5
 	else
-		puerta.CanCollide = true
-		puerta.Transparency = 0
+		part.CanCollide = true
+		part.Transparency = 0
 	end
 end)
 
-Puerta 2: local puerta = script.Parent
 
-puerta.Touched:Connect(function()
-		puerta.CanCollide = false
-		puerta.Transparency = 0.5
+Puerta 2:
+local part = script.Parent
+
+part.Touched:Connect(function()
+	part.CanCollide = false
+	part.Transparency = .5
 end)
 
-puerta.TouchEnded:Connect(function()
-	puerta.CanCollide = true
-	puerta.Transparency = 0
+part.TouchEnded:Connect(function()
+	part.CanCollide = true
+	part.Transparency = 0
 end)
 
-Puerta 3: local prompt = script.Parent
-local puerta = script.Parent.Parent
 
-prompt.Triggered:Connect(function()
-	if prompt.ActionText == "Abrir" then
-		puerta.Transparency = 0.5
-		puerta.CanCollide = false
-		prompt.ActionText = "Cerrar"
+
+Puerta 3:
+local P = script.Parent
+
+local part = script.Parent.Parent
+
+P.Triggered:Connect(function()
+	if P.ActionText == "Abrir" then
+		part.CanCollide = false
+		part.Transparency = .5
+		P.ActionText = "Cerrar"
 	else
-		puerta.Transparency = 0
-		puerta.CanCollide = true
-		prompt.ActionText = "Abrir"
+		part.CanCollide = true
+		part.Transparency = 0
+		P.ActionText = "Abrir"
 	end
+end)
+
+
+Puerta 4:
+local click = script.Parent.MouseClick
+local part = script.Parent.Parent
+
+click:Connect(function()
+	part.Position = Vector3.new(19.582, 6.471, -37.489)
+	part.Orientation = Vector3.new(0, 68.84, 0)
+	wait(3)
+	part.Position = Vector3.new(22.418, 6.471, -34.337)
+	part.Orientation = Vector3.new(0,0,0)
 end)
